@@ -185,10 +185,13 @@ body {
   }
 }
 .stand__speakers__item.active div .indicator::before {
-  opacity: 0;
+  animation: blink-1 1s ease-in-out infinite;
 }
 .stand__speakers__item.active div .indicator::after {
-  opacity: 1;
+  animation: blink-2 1s ease-in-out infinite;
+}
+.stand__speakers__item.active h4 {
+  color: #70C847;
 }
 @media (max-width: 992px) {
   .stand__speakers__item_empty {
@@ -220,6 +223,7 @@ body {
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
+  border-radius: 50%;
 }
 .stand__speakers__item div .speaker.small {
   width: 1.8rem;
@@ -287,6 +291,7 @@ body {
   line-height: 1rem;
   text-align: center;
   color: #78818E;
+  transition: all 0.1s linear;
   margin: 0;
 }
 .stand__audio-recorder {
@@ -348,7 +353,8 @@ body {
 }
 @media (max-width: 992px) {
   .stand__audio-recorder__content {
-    padding-top: 2.3rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 .stand__audio-recorder__content h3 {
@@ -628,6 +634,28 @@ body {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes blink-1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 @keyframes scroll {

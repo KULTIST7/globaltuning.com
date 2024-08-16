@@ -134,13 +134,17 @@
                 div {
                     .indicator {
                         &::before {
-                            opacity: 0;
+                            animation: blink-1 1s ease-in-out infinite;
                         }
 
                         &::after {
-                            opacity: 1;
+                            animation: blink-2 1s ease-in-out infinite;
                         }
                     }
+                }
+
+                h4 {
+                    color: #70C847;
                 }
             }
 
@@ -180,6 +184,7 @@
                     pointer-events: none;
                     object-fit: contain;
                     object-position: center;
+                    border-radius: 50%;
 
                     &.small {
                         width: 1.8rem;
@@ -262,6 +267,7 @@
                 line-height: 1rem;
                 text-align: center;
                 color: #78818E;
+                transition: all .1s linear;
                 margin: 0;
             }
         }
@@ -325,7 +331,8 @@
             box-sizing: border-box;
 
             @media (max-width: 992px) {
-                padding-top: 2.3rem;
+                padding-top: 0;
+                padding-bottom: 0;
             }
 
             h3 {
@@ -637,11 +644,37 @@
     }
 }
 
+@keyframes blink-1 {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink-2 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @keyframes scroll {
     from {
-      transform: translateX(-100%);
+        transform: translateX(-100%);
     }
     to {
-      transform: translateX(200%);
+        transform: translateX(200%);
     }
-  }
+}
