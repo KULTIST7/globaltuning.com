@@ -80,6 +80,11 @@ body {
   border-radius: 1rem;
   margin-bottom: 1rem;
 }
+@media (max-width: 992px) {
+  .stand__speakers {
+    margin-bottom: 5rem;
+  }
+}
 .stand__speakers::before, .stand__speakers::after {
   content: "";
   position: absolute;
