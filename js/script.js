@@ -141,7 +141,7 @@ function collapseAudioRecorder() {
 
 function addItems(classOfType) {
     let itemToAdd = `<div class="stand__speakers__item stand__speakers__item_empty"><div><img src="images/svg/empty-speaker.svg" alt="" class="speaker ${classOfType}" loading="lazy"><img class="plus" src="images/svg/plus.svg" alt="" loading="lazy"><div class="indicator"></div></div></div>`;
-    let itemsInRow = Math.round(document.querySelector('.stand__speakers__content').offsetWidth / document.querySelector('.stand__speakers__item') == null ? document.querySelector('.stand__speakers__item').offsetWidth : 6);
+    let itemsInRow = Math.round(document.querySelector('.stand__speakers__content').offsetWidth / (document.querySelector('.stand__speakers__item') != null ? document.querySelector('.stand__speakers__item').offsetWidth : 6));
 
     $(`.stand__speakers__item_empty>div>.${classOfType}`).parent().parent().remove();
 
