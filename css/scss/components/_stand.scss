@@ -147,6 +147,16 @@
                     }
                 }
 
+                &.paused {
+                    div {
+                        .indicator {
+                            &::before, &::after {
+                                animation: none;
+                            }
+                        }
+                    }
+                }
+
                 h4 {
                     color: #70C847;
                 }
@@ -366,12 +376,12 @@
             background-size: contain;
             box-sizing: border-box;
             padding: 2.6rem 2.3rem 3rem 5.3rem;
-            margin-bottom: 3.5rem;
+            margin-bottom: 1rem;
 
             @media (max-width: 992px) {
                 width: 31.5rem;
                 height: 10rem;
-                order: 1;
+                order: 2;
                 padding: 3.25rem 3rem 4rem 7rem;
                 margin-bottom: 0.5rem;
             }
@@ -391,8 +401,8 @@
             &::before {
                 content: '';
                 position: absolute;
-                width: 4.15rem;
-                height: 4.15rem;
+                width: 4.2rem;
+                height: 4.2rem;
                 background: url(../images/svg/player-voice.svg) no-repeat;
                 background-size: contain;
                 left: 0.9rem;
@@ -455,6 +465,60 @@
                     width: max-content;
                     margin: 0;
                 }
+            }
+        }
+
+        &__play-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 6.4rem;
+            height: 3.2rem;
+            background: linear-gradient(0deg, #090A0C 0%, #2F2F2F 7.06%, #535353 67.06%, #535353 69.02%, #535353 90.2%, #01050B 100%);
+            box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.90);
+            border-radius: 1rem;
+            margin-bottom: 1.4rem;
+            cursor: pointer;
+
+            @media (max-width: 992px) {
+                order: 1;
+            }
+
+            &.active {
+                &::before {
+                    display: none;
+                }
+
+                &::after {
+                    display: flex;
+                }
+            }
+
+            &.disabled {
+                cursor: auto;
+
+                &::before {
+                    background: url(../../../images/svg/play-button-disabled.svg) no-repeat;
+                    background-size: contain;
+                }
+            }
+
+            &::before {
+                content: '';
+                display: flex;
+                width: 1.4rem;
+                height: 1.5rem;
+                background: url(../images/svg/play-button.svg) no-repeat;
+                background-size: contain;
+            }
+
+            &::after {
+                content: '';
+                display: none;
+                width: 1.4rem;
+                height: 1.5rem;
+                background: url(../images/svg/pause-button.svg) no-repeat;
+                background-size: contain;
             }
         }
         

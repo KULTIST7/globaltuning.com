@@ -195,6 +195,9 @@ body {
 .stand__speakers__item.active div .indicator::after {
   animation: blink-2 1s ease-in-out infinite;
 }
+.stand__speakers__item.active.paused div .indicator::before, .stand__speakers__item.active.paused div .indicator::after {
+  animation: none;
+}
 .stand__speakers__item.active h4 {
   color: #70C847;
 }
@@ -387,13 +390,13 @@ body {
   background-size: contain;
   box-sizing: border-box;
   padding: 2.6rem 2.3rem 3rem 5.3rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1rem;
 }
 @media (max-width: 992px) {
   .stand__audio-recorder__player {
     width: 31.5rem;
     height: 10rem;
-    order: 1;
+    order: 2;
     padding: 3.25rem 3rem 4rem 7rem;
     margin-bottom: 0.5rem;
   }
@@ -407,8 +410,8 @@ body {
 .stand__audio-recorder__player::before {
   content: "";
   position: absolute;
-  width: 4.15rem;
-  height: 4.15rem;
+  width: 4.2rem;
+  height: 4.2rem;
   background: url(../images/svg/player-voice.svg) no-repeat;
   background-size: contain;
   left: 0.9rem;
@@ -470,6 +473,52 @@ body {
   width: -moz-max-content;
   width: max-content;
   margin: 0;
+}
+.stand__audio-recorder__play-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6.4rem;
+  height: 3.2rem;
+  background: linear-gradient(0deg, #090A0C 0%, #2F2F2F 7.06%, #535353 67.06%, #535353 69.02%, #535353 90.2%, #01050B 100%);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.9);
+  border-radius: 1rem;
+  margin-bottom: 1.4rem;
+  cursor: pointer;
+}
+@media (max-width: 992px) {
+  .stand__audio-recorder__play-button {
+    order: 1;
+  }
+}
+.stand__audio-recorder__play-button.active::before {
+  display: none;
+}
+.stand__audio-recorder__play-button.active::after {
+  display: flex;
+}
+.stand__audio-recorder__play-button.disabled {
+  cursor: auto;
+}
+.stand__audio-recorder__play-button.disabled::before {
+  background: url(../../../images/svg/play-button-disabled.svg) no-repeat;
+  background-size: contain;
+}
+.stand__audio-recorder__play-button::before {
+  content: "";
+  display: flex;
+  width: 1.4rem;
+  height: 1.5rem;
+  background: url(../images/svg/play-button.svg) no-repeat;
+  background-size: contain;
+}
+.stand__audio-recorder__play-button::after {
+  content: "";
+  display: none;
+  width: 1.4rem;
+  height: 1.5rem;
+  background: url(../images/svg/pause-button.svg) no-repeat;
+  background-size: contain;
 }
 .stand__audio-recorder__expand {
   display: none;

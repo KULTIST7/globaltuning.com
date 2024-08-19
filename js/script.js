@@ -17,11 +17,13 @@ $(document).ready(() => {
     });
 
     $('.stand__speakers__item').on('click', function () {
-        $('.stand__speakers__item').removeClass('active');
+        $('.stand__speakers__item').removeClass('active paused');
+        $('.stand__audio-recorder__play-button').removeClass('disabled');
         $(this).addClass('active');
 
         $('.stand__audio-recorder__control').attr('src', $(this).attr('data-audio'));
         $('.stand__audio-recorder__control')[0].play();
+        $('.stand__audio-recorder__play-button').addClass('active');
 
         $('.stand__audio-recorder__player').addClass('active');
         $('.stand__audio-recorder__player>div>p').html($($(this).children()[1]).text());
@@ -29,7 +31,24 @@ $(document).ready(() => {
 
         $('.stand__audio-recorder__control')[0].onended = () => {
             $(this).removeClass('active');
+            $('.stand__audio-recorder__play-button').removeClass('active');
             $('.stand__audio-recorder__player').removeClass('active');
+        }
+    });
+
+    $('.stand__audio-recorder__play-button').on('click', function () {
+        if (!$(this).hasClass('disabled')) {
+            $(this).toggleClass('active');
+
+            if ($(this).hasClass('active')) {
+                $('.stand__audio-recorder__control')[0].play();
+                $('.stand__audio-recorder__player').addClass('active');
+                $('.stand__speakers__item').removeClass('paused');
+            } else {
+                $('.stand__audio-recorder__control')[0].pause();
+                $('.stand__audio-recorder__player').removeClass('active');
+                $('.stand__speakers__item').addClass('paused');
+            }
         }
     });
 
@@ -113,6 +132,7 @@ $(document).ready(() => {
             $('.stand__audio-recorder__average-rating').slideUp('fast');
             $('.stand__audio-recorder__rate').slideUp('fast');
             $('.stand__audio-recorder__sliders').slideUp('fast');
+            $('.stand__audio-recorder__play-button').slideUp('fast');
             $(this).removeClass('active');
         } else {
             $(this).html('свернуть');
@@ -120,6 +140,7 @@ $(document).ready(() => {
             $('.stand__audio-recorder__average-rating').slideDown('fast');
             $('.stand__audio-recorder__rate').slideDown('fast');
             $('.stand__audio-recorder__sliders').slideDown('fast');
+            $('.stand__audio-recorder__play-button').slideDown('fast');
             $(this).addClass('active');
         }
     });
@@ -131,11 +152,13 @@ function collapseAudioRecorder() {
         $('.stand__audio-recorder__average-rating').slideUp(0);
         $('.stand__audio-recorder__rate').slideUp(0);
         $('.stand__audio-recorder__sliders').slideUp(0);
+        $('.stand__audio-recorder__play-button').slideUp(0);
     } else {
         $('.stand__audio-recorder__content>h3').slideDown(0);
         $('.stand__audio-recorder__average-rating').slideDown(0);
         $('.stand__audio-recorder__rate').slideDown(0);
         $('.stand__audio-recorder__sliders').slideDown(0);
+        $('.stand__audio-recorder__play-button').slideDown(0);
     }
 }
 
