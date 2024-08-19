@@ -82,7 +82,13 @@ body {
 }
 @media (max-width: 992px) {
   .stand__speakers {
-    margin-bottom: 5rem;
+    display: none;
+    margin: 0 1.2rem 5rem;
+  }
+}
+@media (max-width: 992px) {
+  .stand__speakers:first-of-type {
+    display: initial;
   }
 }
 .stand__speakers::before, .stand__speakers::after {
@@ -314,7 +320,8 @@ body {
 @media (max-width: 992px) {
   .stand__audio-recorder {
     position: fixed;
-    width: 100%;
+    width: calc(100% - 2.4rem);
+    margin: 0 1.2rem;
     z-index: 100;
     left: 0;
     bottom: 0;
@@ -361,8 +368,7 @@ body {
 }
 @media (max-width: 992px) {
   .stand__audio-recorder__content {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0 0.2rem;
   }
 }
 .stand__audio-recorder__content h3 {
@@ -394,11 +400,13 @@ body {
 }
 @media (max-width: 992px) {
   .stand__audio-recorder__player {
-    width: 31.5rem;
-    height: 10rem;
-    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 238/76.5;
+    order: 3;
     padding: 3.25rem 3rem 4rem 7rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
   }
 }
 .stand__audio-recorder__player.active::before {
@@ -530,8 +538,10 @@ body {
   line-height: 3.2rem;
   color: #FCCA27;
   background: #232323;
+  padding: 0;
   border: 0;
   border-radius: 0.7rem;
+  order: 2;
 }
 @media (max-width: 992px) {
   .stand__audio-recorder__expand {

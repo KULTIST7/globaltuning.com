@@ -20,7 +20,14 @@
         margin-bottom: 1rem;
 
         @media (max-width: 992px) {
-            margin-bottom: 5rem;
+            display: none;
+            margin: 0 1.2rem 5rem;
+        }
+
+        &:first-of-type {
+            @media (max-width: 992px) {
+                display: initial;
+            }
         }
 
         &::before, &::after {
@@ -297,7 +304,8 @@
 
         @media (max-width: 992px) {
             position: fixed;
-            width: 100%;
+            width: calc(100% - 2.4rem);
+            margin: 0 1.2rem;
             z-index: 100;
             left: 0;
             bottom: 0;
@@ -345,8 +353,7 @@
             box-sizing: border-box;
 
             @media (max-width: 992px) {
-                padding-top: 0;
-                padding-bottom: 0;
+                padding: 0 0.2rem;
             }
 
             h3 {
@@ -379,11 +386,13 @@
             margin-bottom: 1rem;
 
             @media (max-width: 992px) {
-                width: 31.5rem;
-                height: 10rem;
-                order: 2;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 238 / 76.5;
+                order: 3;
                 padding: 3.25rem 3rem 4rem 7rem;
-                margin-bottom: 0.5rem;
+                margin-top: 1rem;
+                margin-bottom: 0;
             }
 
             &.active {
@@ -532,8 +541,10 @@
             line-height: 3.2rem;
             color: #FCCA27;
             background: #232323;
+            padding: 0;
             border: 0;
             border-radius: 0.7rem;
+            order: 2;
 
             @media (max-width: 992px) {
                 display: flex;
