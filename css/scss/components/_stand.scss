@@ -386,6 +386,7 @@
             margin-bottom: 1rem;
 
             @media (max-width: 992px) {
+                max-width: 31.9rem;
                 width: 100%;
                 height: auto;
                 aspect-ratio: 238 / 76.5;
@@ -443,7 +444,7 @@
                 }
             }
 
-            &>div {
+            &>.stand__audio-recorder__creeping-line {
                 position: relative;
                 display: flex;
                 flex-direction: column;
@@ -478,28 +479,30 @@
         }
 
         &__play-button {
+            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 6.4rem;
-            height: 3.2rem;
-            background: linear-gradient(0deg, #090A0C 0%, #2F2F2F 7.06%, #535353 67.06%, #535353 69.02%, #535353 90.2%, #01050B 100%);
-            box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.90);
-            border-radius: 1rem;
-            margin-bottom: 1.4rem;
+            width: 4.2rem;
+            height: 4.2rem;
             cursor: pointer;
+            left: 0.9rem;
+            bottom: 1.1rem;
 
             @media (max-width: 992px) {
-                order: 1;
+                width: 5.5rem;
+                height: 5.5rem;
+                left: 1.2rem;
+                bottom: 1.4rem;
             }
 
             &.active {
                 &::before {
-                    display: none;
+                    display: flex;
                 }
 
                 &::after {
-                    display: flex;
+                    display: none;
                 }
             }
 
@@ -514,20 +517,28 @@
 
             &::before {
                 content: '';
-                display: flex;
-                width: 1.4rem;
-                height: 1.5rem;
+                display: none;
+                width: 1.2rem;
+                height: 1.3rem;
                 background: url(../images/svg/play-button.svg) no-repeat;
                 background-size: contain;
             }
 
             &::after {
                 content: '';
-                display: none;
-                width: 1.4rem;
-                height: 1.5rem;
-                background: url(../images/svg/pause-button.svg) no-repeat;
+                display: flex;
+                width: 1.2rem;
+                height: 1.3rem;
+                background: url(../images/svg/play-button-disabled.svg) no-repeat;
                 background-size: contain;
+            }
+
+            &::before, &::after {
+                @media (max-width: 992px) {
+                    width: 1.38rem;
+                    height: 1.5rem;
+                    margin-top: 0.2rem;
+                }
             }
         }
         

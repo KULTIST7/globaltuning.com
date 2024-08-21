@@ -178,7 +178,6 @@ body {
   flex-direction: column;
   align-items: center;
   width: 16.66%;
-  height: -moz-max-content;
   height: max-content;
   box-sizing: border-box;
   padding: 0.2rem 0.8rem 0.7rem;
@@ -233,10 +232,8 @@ body {
 }
 .stand__speakers__item div .speaker {
   pointer-events: none;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
   border-radius: 50%;
 }
 .stand__speakers__item div .speaker.small {
@@ -310,7 +307,6 @@ body {
 }
 .stand__audio-recorder {
   width: 29rem;
-  height: -moz-max-content;
   height: max-content;
   border-radius: 1rem;
   border: 4px #242424 solid;
@@ -358,7 +354,6 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: -moz-max-content;
   height: max-content;
   padding: 0.8rem 1.1rem 1rem;
   border: 10px #040404 solid;
@@ -400,6 +395,7 @@ body {
 }
 @media (max-width: 992px) {
   .stand__audio-recorder__player {
+    max-width: 31.9rem;
     width: 100%;
     height: auto;
     aspect-ratio: 238/76.5;
@@ -451,7 +447,7 @@ body {
     bottom: 2.2rem;
   }
 }
-.stand__audio-recorder__player > div {
+.stand__audio-recorder__player > .stand__audio-recorder__creeping-line {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -464,7 +460,7 @@ body {
   overflow: hidden;
   padding-left: 0.6rem;
 }
-.stand__audio-recorder__player > div::before {
+.stand__audio-recorder__player > .stand__audio-recorder__creeping-line::before {
   content: "";
   position: absolute;
   width: 2.5rem;
@@ -474,36 +470,37 @@ body {
   top: 0;
   right: 0;
 }
-.stand__audio-recorder__player > div p {
+.stand__audio-recorder__player > .stand__audio-recorder__creeping-line p {
   font-family: Digital-Numbers;
   font-size: 1.4rem;
   color: #FCCA27;
-  width: -moz-max-content;
   width: max-content;
   margin: 0;
 }
 .stand__audio-recorder__play-button {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 6.4rem;
-  height: 3.2rem;
-  background: linear-gradient(0deg, #090A0C 0%, #2F2F2F 7.06%, #535353 67.06%, #535353 69.02%, #535353 90.2%, #01050B 100%);
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.9);
-  border-radius: 1rem;
-  margin-bottom: 1.4rem;
+  width: 4.2rem;
+  height: 4.2rem;
   cursor: pointer;
+  left: 0.9rem;
+  bottom: 1.1rem;
 }
 @media (max-width: 992px) {
   .stand__audio-recorder__play-button {
-    order: 1;
+    width: 5.5rem;
+    height: 5.5rem;
+    left: 1.2rem;
+    bottom: 1.4rem;
   }
 }
 .stand__audio-recorder__play-button.active::before {
-  display: none;
+  display: flex;
 }
 .stand__audio-recorder__play-button.active::after {
-  display: flex;
+  display: none;
 }
 .stand__audio-recorder__play-button.disabled {
   cursor: auto;
@@ -514,19 +511,26 @@ body {
 }
 .stand__audio-recorder__play-button::before {
   content: "";
-  display: flex;
-  width: 1.4rem;
-  height: 1.5rem;
+  display: none;
+  width: 1.2rem;
+  height: 1.3rem;
   background: url(../images/svg/play-button.svg) no-repeat;
   background-size: contain;
 }
 .stand__audio-recorder__play-button::after {
   content: "";
-  display: none;
-  width: 1.4rem;
-  height: 1.5rem;
-  background: url(../images/svg/pause-button.svg) no-repeat;
+  display: flex;
+  width: 1.2rem;
+  height: 1.3rem;
+  background: url(../images/svg/play-button-disabled.svg) no-repeat;
   background-size: contain;
+}
+@media (max-width: 992px) {
+  .stand__audio-recorder__play-button::before, .stand__audio-recorder__play-button::after {
+    width: 1.38rem;
+    height: 1.5rem;
+    margin-top: 0.2rem;
+  }
 }
 .stand__audio-recorder__expand {
   display: none;
@@ -656,8 +660,7 @@ body {
   height: 2px;
   background: linear-gradient(270deg, rgba(252, 202, 39, 0.46) 0%, #FCCA27 48%, rgba(252, 202, 39, 0.36) 100%);
   border: 3px #000 solid;
-  -o-border-image: linear-gradient(90deg, #0E1013 0%, #2A3037 50.83%, #0F1215 100.65%);
-     border-image: linear-gradient(90deg, #0E1013 0%, #2A3037 50.83%, #0F1215 100.65%);
+  border-image: linear-gradient(90deg, #0E1013 0%, #2A3037 50.83%, #0F1215 100.65%);
   border-image-slice: 1;
   border-radius: 2rem;
 }
@@ -685,10 +688,8 @@ body {
 .stand__amplifier__content img {
   width: 18rem;
   height: 8rem;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
   margin: 4rem 0;
 }
 
@@ -729,4 +730,4 @@ body {
   to {
     transform: translateX(200%);
   }
-}
+}/*# sourceMappingURL=style.css.map */
